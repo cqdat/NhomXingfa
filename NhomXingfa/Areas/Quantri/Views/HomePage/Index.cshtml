@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Quantri/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index Home page quarn trị</h2>
+<textarea id="Content" name="Content"></textarea>
+
+@section scripts{
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="~/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace("Content",
+            {
+                height: '500px'
+            });
+        CKFinder.setupCKEditor(null, '/ckfinder')
+
+        $(document).ready(function () {
+
+            $("#BlogName").focusout(function () {
+                var BlogName = $("#BlogName").val();
+                $("#SEOTitle").val(BlogName);
+            });
+
+        });
+    </script>
+
+}
