@@ -21,10 +21,24 @@ namespace NhomXingfa
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/jquery.unobtrusive-ajax.min.js",
+                "~/js/jquery-2.1.4.min.js",
+                "~/js/JiSlider.js",
+                "~/js/jquery.waypoints.min.js",
+                "~/js/jquery.countup.js",
+                "~/js/jquery.flexisel.js",
+                "~/js/owl.carousel.js",
+                "~/js/move-top.js",
+                "~/js/easing.js",
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/css/bootstrap.css",
+                      "~/css/JiSlider.css",
+                      "~/css/flexslider.css",
+                      "~/css/owl.carousel.css",
+                      "~/css/style.css",
+                      "~/css/font-awesome.css",
                       "~/Content/site.css"));
 
             #region Admin
