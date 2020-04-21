@@ -179,6 +179,7 @@
     <Compile Include="Areas\Quantri\Controllers\BaseController.cs" />
     <Compile Include="Areas\Quantri\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Quantri\Controllers\HomePageController.cs" />
+    <Compile Include="Areas\Quantri\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Quantri\Models\DataModels\Advertise.cs" />
     <Compile Include="Areas\Quantri\Models\DataModels\Blog.cs" />
     <Compile Include="Areas\Quantri\Models\DataModels\BlogComment.cs" />
@@ -598,6 +599,12 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Quantri\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Quantri\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Quantri\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Quantri\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Quantri\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Quantri\Views\Products\_PartialIndex.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
