@@ -139,8 +139,11 @@ namespace NhomXingfa.Areas.Quantri.Utilities
             {
                 data += q.Permission.PermissionName + ", ";
             }
-
-            return data.Substring(0, data.Length - 2);
+            if(data.Length > 2)
+            {
+                data = data.Substring(0, data.Length - 2);
+            }
+            return data;
         }
 
     }

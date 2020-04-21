@@ -33,7 +33,7 @@
             <a class="navbar-brand" href="/">Tân Thời</a>
         </div>
 
-        @*@Html.Partial("_logged")*@
+        @Html.Partial("_logged")
 
     </header>
 
@@ -59,11 +59,13 @@
     </div> <!-- page-container -->
 
     @Scripts.Render("~/Areas/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Areas/bundles/js")
+
     @Scripts.Render("~/Areas/bundles/jqueryval")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/Areas/bundles/bundleupload")
-        @Scripts.Render("~/Areas/bundles/Blueimp-Gallerry2")
+    @Scripts.Render("~/Areas/bundles/Blueimp-Gallerry2")
 
 </body>
 </html>

@@ -158,8 +158,7 @@
         var hdProductIDDetail = $("#hdProductIDDetail").val().trim();
 
         $.ajax({
-            //url: '/products/GetGroupProduct',
-            url: '@Url.Action("GetGroupProduct", "products", new { area = "Quantri" })',
+            url: '/products/GetGroupProduct',
             contentType: 'application/html; charset=utf-8',
             data: { productid: hdProductIDDetail },
             type: 'GET',
@@ -421,8 +420,7 @@
 
     });
 
-    $(document).on("click", "#btnUploadImage", function () {
-        alert("a");
+    $(document).on("click", "#btnUploadImage", function() {
         var productid = $(this).attr("productid");
 
         //alert("sdsad");
