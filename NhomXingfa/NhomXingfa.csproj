@@ -349,6 +349,7 @@
     <Content Include="Areas\Quantri\assets\js\blueimp-gallery2\js\jquery.blueimp-gallery.min.js" />
     <Content Include="Areas\Quantri\assets\js\bootstrap.js" />
     <Content Include="Areas\Quantri\assets\js\bootstrap.min.js" />
+    <Content Include="Areas\Quantri\assets\js\client.js" />
     <Content Include="Areas\Quantri\assets\js\enquire.js" />
     <Content Include="Areas\Quantri\assets\js\images\animated-overlay.gif" />
     <Content Include="Areas\Quantri\assets\js\images\ui-bg_flat_0_2b6bd9_40x100.png" />
@@ -615,6 +616,7 @@
     <Content Include="Areas\Quantri\Views\Users\Role.cshtml" />
     <Content Include="Areas\Quantri\Views\Users\_roleuser.cshtml" />
     <Content Include="Areas\Quantri\Views\Users\_updaterole.cshtml" />
+    <Content Include="Areas\Quantri\Views\Shared\_logged.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -661,6 +663,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_blank.cshtml" />
+    <Content Include="Views\Shared\_roleuser.cshtml" />
+    <Content Include="Views\Shared\_updaterole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

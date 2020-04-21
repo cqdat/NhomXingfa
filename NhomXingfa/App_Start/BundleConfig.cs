@@ -82,7 +82,7 @@ namespace NhomXingfa
                       "~/Areas/Quantri/assets/js/placeholdr.js",
                       "~/Areas/Quantri/assets/js/application.js",
                       "~/Areas/Quantri/assets/demo/demo.js",
-                        "~/Areas/Quantri/Scripts/client.js"
+                        "~/Areas/Quantri/assets/js/client.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Areas/Content/css").Include(

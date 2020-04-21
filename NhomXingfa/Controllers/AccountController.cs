@@ -70,10 +70,10 @@ namespace NhomXingfa.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
 
             CustomMembershipProvider customeProvider = new CustomMembershipProvider();
 
@@ -82,7 +82,7 @@ namespace NhomXingfa.Controllers
 
                 FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
 
-                return RedirectToLocal(returnUrl);
+                return Redirect("~/quantri/homepage");//RedirectToLocal(returnUrl);
             }
             else
             {
@@ -411,7 +411,7 @@ namespace NhomXingfa.Controllers
             FormsAuthentication.SignOut();
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             Session.Abandon();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("login", "account");
         }
 
         //
