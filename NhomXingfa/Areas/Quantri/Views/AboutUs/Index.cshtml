@@ -1,25 +1,23 @@
-﻿@model IEnumerable<NhomXingfa.Areas.Quantri.Models.DataModels.Product>
-
+﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Quantri/Views/Shared/_Layout.cshtml";
 }
-
 <div id="page-heading">
     <ol class="breadcrumb">
         <li><a href="index.html">Trang chủ</a></li>
-        <li class="active">Danh sách Sản phẩm</li>
+        <li class="active">Danh sách Bài viết Công ty</li>
 
     </ol>
 
-    <h1>DS Sản phẩm</h1>
+    <h1>DS Bài viết</h1>
     <div class="options">
         <div class="btn-toolbar">
 
-            <a href="/Products/Create/" class="btn btn-success btn-label"><i class="fa fa-plus"></i>Thêm mới</a>
+            <a href="/AboutUs/Create/" class="btn btn-success btn-label"><i class="fa fa-plus"></i>Thêm mới</a>
         </div>
     </div>
 </div>
+
 <div class="container" style="padding:5px">
     <div class="form-group">
         <div class="row">
@@ -33,33 +31,19 @@
                     <option value="-1">Tất cả</option>
                 </select>
             </div>
-            <div class="col-xs-2">
-                Mã SP<br />
-                <input type="text" id="txtMaSP" name="txtMaSP" class="form-control txtSearch" placeholder="Nhập Mã Sản phẩm...">
-            </div>
-            <div class="col-xs-2">
-                Tên SP<br />
-                <input type="text" id="txtSanPham" name="txtSanPham" class="form-control txtSearch" placeholder="Nhập tên...">
-            </div>
-            <div class="col-xs-2">
-                Danh Mục Cha<br />
 
-                <select class="form-control drChange" id="ParentId" name="ParentId">
-                    <option value="">--Tất cả--</option>
-                    @foreach (var i in (List<NhomXingfa.Areas.Quantri.Models.DataModels.Category>)ViewData["ListCateParent"])
-                    {
-                        <option value="@i.CategoryID">@i.CategoryName</option>
-                    }
-
-                </select>
+            <div class="col-xs-3">
+                Tiêu đề bài viết<br />
+                <input type="text" id="txtTieuDe" name="txtTieuDe" class="form-control txtSearch" placeholder="Nhập tên...">
             </div>
+
             <div class="col-xs-2">
                 Danh Mục Con<br />
 
                 <select class="form-control drChange" id="CategoryID" name="CategoryID">
                     <option value="">--Tất cả--</option>
 
-                    @foreach (var i in (List<NhomXingfa.Areas.Quantri.Models.DataModels.Category>)ViewData["ListCate"])
+                    @foreach (var i in (List<NoiThatAdmin.Models.DataModels.Category>)ViewData["ListCate"])
                     {
                         <option value="@i.CategoryID">@i.CategoryName</option>
                     }
@@ -116,20 +100,16 @@
     });
 
     function filter() {
-        var MaSP = $("#txtMaSP").val();
-        var SanPham = $("#txtSanPham").val();
-        var DanhMucCha = $("#ParentId").val();
-        var DanhMucCon = $("#CategoryID").val();
+        var TieuDe = $("#txtTieuDe").val();
+        var DanhMuc = $("#CategoryID").val();
         var SEOKeywords = $("#SEOKeywords").val();
         $.ajax({
             //url: '/BDS_TinTuc/_PartialIndex',
-            url: '@Url.Action("_PartialIndex", "Products", new { Areas = "Quantri" })',
+            url: '@Url.Action("_PartialIndex", "AboutUs", new { area = "Cpanel" })',
             data: {
                 pageSize: parseInt($('#ddlPageSize').val()),
-                MaSP:MaSP,
-                SanPham: SanPham,
-                DanhMucCha: DanhMucCha,
-                DanhMucCon:DanhMucCon,
+                TieuDe: TieuDe,
+                DanhMuc: DanhMuc,
                 SEOKeywords:SEOKeywords
             },
             method: 'GET',
@@ -139,7 +119,6 @@
                 $("#lbl_Message").html("");
             }
         });
-
 
     }
     </script>
