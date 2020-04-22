@@ -1,26 +1,32 @@
-﻿@{
+﻿@using NhomXingfa.Models
+@model IndexViewModels
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="banner-silder">
     <div id="JiSlider" class="jislider">
         <ul>
-            <li>
-                <div class="w3layouts-banner-top">
+            @foreach (var i in Model.lstHomeBanner)
+            {
+                <li>
+                    <div class="w3layouts-banner-top">
 
-                    <div class="container">
-                        <div class="agileits-banner-info">
+                        <div class="container">
+                            <div class="agileits-banner-info">
 
-                            <h3>Nhôm Xingfa</h3>
-                            <p>Giải pháp cho mọi công trình</p>
-                            <div class="more">
-                                <a href="#" class="hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                <h3>@i.Slogun1</h3>
+                                <p>@i.Slogun2</p>
+                                <div class="more">
+                                    <a href="@i.LinkBanner" class="hvr-shutter-in-vertical" data-toggle="modal" data-target="#myModal">Xem thêm <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li>
+                </li>
+            }
+
+            @*<li>
                 <div class="w3layouts-banner-top w3layouts-banner-top1">
                     <div class="container">
                         <div class="agileits-banner-info">
@@ -48,7 +54,7 @@
 
                     </div>
                 </div>
-            </li>
+            </li>*@
 
         </ul>
     </div>

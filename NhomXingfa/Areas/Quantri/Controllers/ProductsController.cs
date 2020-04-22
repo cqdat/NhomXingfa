@@ -101,6 +101,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Products/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.CategoryIDParent = new SelectList(db.Categories.Where(c => c.Parent == 0 && c.TypeCate == WebConstants.CategoryProduct), "CategoryID", "CategoryName");

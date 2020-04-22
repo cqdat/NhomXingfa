@@ -605,7 +605,7 @@
                     //loadingstart();
 
                     $.ajax({
-                        url: '/slides/UploadImage',
+                        url: '/Quantri/slides/UploadImage',
                         type: "POST",
                         contentType: false,
                         processData: false,
@@ -615,7 +615,7 @@
                             if (result != "FAIL") {
 
                                 $.ajax({
-                                    url: '/slides/createslide',
+                                    url: '/Quantri/slides/createslide',
                                     contentType: 'application/html; charset=utf-8',
                                     data: { urlimg: result, target: target, sort: sort, link: link, slogan2: slogan2, slogan1: slogan1, title: title},
                                     type: 'GET',

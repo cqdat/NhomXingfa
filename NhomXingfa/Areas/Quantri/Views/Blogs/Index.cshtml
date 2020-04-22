@@ -1,23 +1,21 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 <div id="page-heading">
     <ol class="breadcrumb">
         <li><a href="index.html">Trang chủ</a></li>
-        <li class="active">Danh sách Bài viết Công ty</li>
+        <li class="active">Danh sách Bài viết</li>
 
     </ol>
 
-    <h1>DS Bài viết</h1>
+    <h1>DS Bài viết/Tin tức</h1>
     <div class="options">
         <div class="btn-toolbar">
 
-            <a href="/AboutUs/Create/" class="btn btn-success btn-label"><i class="fa fa-plus"></i>Thêm mới</a>
+            <a href="/Blogs/Create/" class="btn btn-success btn-label"><i class="fa fa-plus"></i>Thêm mới</a>
         </div>
     </div>
 </div>
-
 <div class="container" style="padding:5px">
     <div class="form-group">
         <div class="row">
@@ -105,7 +103,7 @@
         var SEOKeywords = $("#SEOKeywords").val();
         $.ajax({
             //url: '/BDS_TinTuc/_PartialIndex',
-            url: '@Url.Action("_PartialIndex", "AboutUs", new { area = "Cpanel" })',
+            url: '@Url.Action("_PartialIndex", "Blogs", new { Areas = "Quantri" })',
             data: {
                 pageSize: parseInt($('#ddlPageSize').val()),
                 TieuDe: TieuDe,
@@ -123,3 +121,6 @@
     }
     </script>
 }
+
+
+
