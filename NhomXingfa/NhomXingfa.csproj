@@ -206,6 +206,7 @@
     <Compile Include="Areas\Quantri\Models\DataModels\Slide.cs" />
     <Compile Include="Areas\Quantri\Models\DataModels\User.cs" />
     <Compile Include="Areas\Quantri\Models\DataModels\XingFaEntities.cs" />
+    <Compile Include="Areas\Quantri\Models\DataViewModel.cs" />
     <Compile Include="Areas\Quantri\QuantriAreaRegistration.cs" />
     <Compile Include="Areas\Quantri\Utilities\Alert.cs" />
     <Compile Include="Areas\Quantri\Utilities\CustomMembershipProvider.cs" />
@@ -698,6 +699,8 @@
     <Content Include="Views\Shared\_blank.cshtml" />
     <Content Include="Views\Shared\_roleuser.cshtml" />
     <Content Include="Views\Shared\_updaterole.cshtml" />
+    <Content Include="Views\Home\TintucTest.cshtml" />
+    <Content Include="Views\Home\_sanPhamNoiBat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

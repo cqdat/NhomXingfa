@@ -13,7 +13,7 @@
     <div class="options">
         <div class="btn-toolbar">
 
-            <a href="/AboutUs/Create/" class="btn btn-success btn-label"><i class="fa fa-plus"></i>Thêm mới</a>
+            <a href="/Quantri/AboutUs/Create/" class="btn btn-success btn-label"><i class="fa fa-plus"></i>Thêm mới</a>
         </div>
     </div>
 </div>
@@ -105,7 +105,7 @@
         var SEOKeywords = $("#SEOKeywords").val();
         $.ajax({
             //url: '/BDS_TinTuc/_PartialIndex',
-            url: '@Url.Action("_PartialIndex", "AboutUs", new { area = "Cpanel" })',
+            url: '@Url.Action("_PartialIndex", "AboutUs", new { area = "Quantri" })',
             data: {
                 pageSize: parseInt($('#ddlPageSize').val()),
                 TieuDe: TieuDe,
