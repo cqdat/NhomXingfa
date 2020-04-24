@@ -15,23 +15,25 @@ namespace NhomXingfa.Controllers
         public ActionResult Index(int? id)
         {
             ProductViewModel model = new ProductViewModel();
+
             model.categories = db.Categories.Where(q => q.IsActive == true).ToList();
 
-            if (id > 0)
+            model.category = db.Categories.Find(id);
+
+            if (model.category.Parent == 0)
             {
-                model.category = db.Categories.Find(id);
-                model.IsAll = false;
-                //model.Title = model.category.CategoryName;
+                model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryIDParent == id).ToList();
             }
             else
             {
-                model.Title = "Sản phẩm";
-                model.IsAll = true;
-                model.product = db.Products.Where(q => q.IsActive == true).ToList();
+                model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
             }
+            return View(model);
+        }
 
-
-                return View(model);
+        public ActionResult Detail(int? id)
+        {
+            return View();
         }
     }
 }
