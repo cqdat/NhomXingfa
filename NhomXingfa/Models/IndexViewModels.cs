@@ -12,5 +12,14 @@ namespace NhomXingfa.Models
         public Blog blogGioiThieu { get; set; }
         public List<ProductGroup> lstProductNoibat { get; set; }
         public List<Product> lstListProjects { get; set; }
+        public List<Blog> lstLastNews { get; set; }
+        public List<Blog> lstServices { get; set; }
+    }
+    public class MenuViewModel
+    {
+        public Information Phone{ get; set; }
+        public Information Email { get; set; }
+        public List<Category> lstProductCategory { get; set; }
+        public List<Category> lstNewsCategory { get; set; }
     }
 }

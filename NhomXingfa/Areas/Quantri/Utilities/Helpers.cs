@@ -29,6 +29,12 @@ namespace NhomXingfa.Areas.Quantri.Utilities
             }
             
         }
+        public int CountTotalSP(int? CateId)
+        {
+
+            int count = db.Products.Where(p => p.CategoryID == CateId).ToList().Count();
+            return count;
+        }
 
         public List<Category> lstGetChildMenu(int?ParentId)
         {

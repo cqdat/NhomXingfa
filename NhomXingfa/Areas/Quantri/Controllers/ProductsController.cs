@@ -270,6 +270,12 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
 
+        public PartialViewResult GetImageforProduct(int? productid)
+        {
+            var model = db.ProductImages.Where(q => q.ProductID == productid).ToList();
+
+            return PartialView("_image", model);
+        }
         //Get group products
         public PartialViewResult GetGroupProduct(int? productid)
         {

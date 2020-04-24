@@ -438,7 +438,7 @@
         var productid = $("#hdProductIDDetail").val().trim();
 
         $.ajax({
-            url: '/products/GetImageforProduct',
+            url: '/Quantri/products/GetImageforProduct',
             contentType: 'application/html; charset=utf-8',
             data: { productid: productid},
             type: 'GET',

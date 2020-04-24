@@ -1,0 +1,61 @@
+﻿@using NhomXingfa.Areas.Quantri.Models.DataModels
+@using NhomXingfa.Areas.Quantri.Models
+@using NhomXingfa.Areas.Quantri.Utilities
+@using NhomXingfa.Models
+@model IEnumerable<Blog>
+<section class="blog-area section-gap">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="main_title">
+                    <h2><span>Tin tức mới nhất</span></h2>
+                    <p>Bring called seed first of third give itself now ment</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var i in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog">
+                        <div class="thumb">
+                            <img class="img-fluid" src="@WebConstants.imgNewsURLShow/@i.ImageURL" style="height:240px" alt="@i.BlogName">
+                        </div>
+                        <div class="short_details">
+                            <div class="meta-top d-flex">
+                                <a href="#">Đăng bởi: @i.User.UserName</a>
+                                <a href="#"><i class="ti-comments-smiley"></i>@i.CountView Lượt xem</a>
+                            </div>
+                            <a class="d-block" href="single-blog.html">
+                                <h4>
+                                    @i.BlogName
+                                </h4>
+                            </a>
+                            <div class="text-wrap">
+                                <p>
+                                    @{
+                                        var shortString = "";
+                                        if (i.Descript.Length >= 102)
+                                        {
+                                            shortString = i.Descript.Substring(0, 102);
+                                        }
+                                        else
+                                        {
+                                            shortString = i.Descript;
+                                        }
+                                    }
+
+                                    @shortString  ...
+                                </p>
+                            </div>
+                            <a href="#" class="blog_btn">Xem thêm <span class="ml-2 ti-arrow-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>

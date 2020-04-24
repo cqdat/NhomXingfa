@@ -183,6 +183,7 @@
     <Compile Include="Areas\Quantri\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Quantri\Controllers\CollectionsController.cs" />
     <Compile Include="Areas\Quantri\Controllers\HomePageController.cs" />
+    <Compile Include="Areas\Quantri\Controllers\ProductImageController.cs" />
     <Compile Include="Areas\Quantri\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Quantri\Controllers\SlidesController.cs" />
     <Compile Include="Areas\Quantri\Controllers\UsersController.cs" />
@@ -208,6 +209,9 @@
     <Compile Include="Areas\Quantri\Models\DataModels\User.cs" />
     <Compile Include="Areas\Quantri\Models\DataModels\XingFaEntities.cs" />
     <Compile Include="Areas\Quantri\Models\DataViewModel.cs" />
+    <Compile Include="Areas\Quantri\Models\FilesHelper.cs" />
+    <Compile Include="Areas\Quantri\Models\ImageHandler.cs" />
+    <Compile Include="Areas\Quantri\Models\JsonFiles.cs" />
     <Compile Include="Areas\Quantri\QuantriAreaRegistration.cs" />
     <Compile Include="Areas\Quantri\Utilities\Alert.cs" />
     <Compile Include="Areas\Quantri\Utilities\CustomMembershipProvider.cs" />
@@ -221,6 +225,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AboutUsViewModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DataViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1000,6 +1005,10 @@
     <Content Include="vendors\linericon\fonts\Linearicons-Free.woff" />
     <Content Include="vendors\linericon\fonts\Linearicons-Free.woff2" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\_headMenu.cshtml" />
+    <Content Include="Views\Home\_duAnTieuBieu.cshtml" />
+    <Content Include="Views\Home\_lastNews.cshtml" />
+    <Content Include="Views\Home\_baiVietServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
