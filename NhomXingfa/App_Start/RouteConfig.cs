@@ -26,10 +26,17 @@ namespace NhomXingfa
              );
 
             routes.MapRoute(
+                name: "chitiet",
+                url: "chi-tiet-san-pham/{url}-{id}",
+                defaults: new { controller = "product", action = "detail", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
             
 
         }

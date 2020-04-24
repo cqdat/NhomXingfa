@@ -8,10 +8,13 @@ namespace NhomXingfa.Models
 {
     public class ProductViewModel
     {
-        public string Title { get; set; }
-        public bool? IsAll { get; set; }
         public List<Product> product { get; set; }
         public List<Category> categories { get; set; }
         public Category category { get; set; }
+    }
+
+    public class DetailProductViewModel
+    {
+        public Product product { get; set; }
     }
 }
