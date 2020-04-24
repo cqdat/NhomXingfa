@@ -8,38 +8,47 @@ namespace NhomXingfa
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            //            "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            //            "~/Scripts/jquery.validate*"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            //// Use the development version of Modernizr to develop with and learn from. Then, when you're
+            //// ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
+            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+            //            "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/jquery.unobtrusive-ajax.min.js",
-                "~/js/jquery-2.1.4.min.js",
-                "~/js/JiSlider.js",
-                "~/js/jquery.waypoints.min.js",
-                "~/js/jquery.countup.js",
-                "~/js/jquery.flexisel.js",
-                "~/js/owl.carousel.js",
-                "~/js/move-top.js",
-                "~/js/easing.js",
-                      "~/Scripts/bootstrap.js"));
+                "~/js/jquery-3.4.1.min.js",
+                "~/js/popper.js",
+                "~/js/bootstrap.min.js",
+                "~/js/stellar.js",
+                "~/vendors/lightbox/simpleLightbox.min.js",
+                "~/vendors/nice-select/js/jquery.nice-select.min.js",
+                "~/vendors/isotope/imagesloaded.pkgd.min.js",
+                "~/vendors/isotope/isotope-min.js",
+                "~/vendors/owl-carousel/owl.carousel.min.js",
+                "~/js/jquery.ajaxchimp.min.js",
+                "~/vendors/counter-up/jquery.waypoints.min.js",
+                "~/vendors/counter-up/jquery.counterup.js",
+                "~/js/mail-script.js",
+                      "~/js/theme.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      //"~/Content/bootstrap.css",
                       "~/css/bootstrap.css",
-                      "~/css/JiSlider.css",
-                      "~/css/flexslider.css",
-                      "~/css/owl.carousel.css",
+                      "~/vendors/linericon/style.css",
+                      "~/css/font-awesome.min.css",
+                      "~/css/themify-icons.css",
+                      "~/css/flaticon.css",
+                      "~/vendors/owl-carousel/owl.carousel.min.css",
+                      "~/vendors/lightbox/simpleLightbox.css",
+                      "~/vendors/nice-select/css/nice-select.css",
+                      "~/vendors/animate-css/animate.css",
+                      "~/vendors/jquery-ui/jquery-ui.css",
                       "~/css/style.css",
-                      "~/css/font-awesome.css",
-                      "~/Content/site.css"));
+                      "~/css/responsive.css"));
 
             #region Admin
             bundles.Add(new ScriptBundle("~/Areas/bundles/jquery").Include(
