@@ -194,9 +194,9 @@
     <div class="container">
         <h2> Sản phẩm Nổi bật </h2>
         <p class="sub_para_agile"> <a href="">Xem tất cả</a> </p>
-        
-        @Html.Partial("_sanPhamNoiBat", Model.lstProductNoibat)
 
+        @Html.Partial("_sanPhamNoiBat", Model.lstProductNoibat)
+        @Html.Partial("_duAnTieuBieu", Model.lstProductNoibat)
         <div class="container">
 
             <h2>  Dự án </h2>
@@ -280,6 +280,7 @@
                 <div class="clearfix"> </div>
             </div>
         </div>
+
     </div>
     <!-- /blog -->
     

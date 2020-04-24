@@ -418,5 +418,29 @@ namespace NhomXingfa.Areas.Quantri.Controllers
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult MoiNhat()
+        {
+            var model = db.ProductGroups.Where(q => q.GroupCode == 1).ToList();
+            return View(model);
+        }
+
+        public ActionResult TieuBieu()
+        {
+            var model = db.ProductGroups.Where(q => q.GroupCode == 2).ToList();
+            return View(model);
+        }
+
+        public ActionResult NoiBat()
+        {
+            var model = db.ProductGroups.Where(q => q.GroupCode == 3).ToList();
+            return View(model);
+        }
+
+        public ActionResult BanChay()
+        {
+            var model = db.ProductGroups.Where(q => q.GroupCode == 4).ToList();
+            return View(model);
+        }
     }
 }

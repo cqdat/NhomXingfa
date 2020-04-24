@@ -181,6 +181,7 @@
     <Compile Include="Areas\Quantri\Controllers\BlogCategoriesController.cs" />
     <Compile Include="Areas\Quantri\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Quantri\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Quantri\Controllers\CollectionsController.cs" />
     <Compile Include="Areas\Quantri\Controllers\HomePageController.cs" />
     <Compile Include="Areas\Quantri\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Quantri\Controllers\SlidesController.cs" />
@@ -576,6 +577,11 @@
     <Content Include="js\jquery.waypoints.min.js" />
     <Content Include="js\move-top.js" />
     <Content Include="js\owl.carousel.js" />
+    <Content Include="Photos\Products\Cua-nhom-4-Canh_136.jpg" />
+    <Content Include="Photos\Products\Cua2Canh_598.jpg" />
+    <Content Include="Photos\Products\Cua2Canh_81.jpg" />
+    <Content Include="Photos\Products\_thumbs\223555_Cua2Canh_598.80x80.jpg" />
+    <Content Include="Photos\Products\_thumbs\232341_Cua-nhom-4-Canh_136.80x80.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Quantri\Views\web.config" />
@@ -651,6 +657,14 @@
     <Content Include="Areas\Quantri\Views\Slides\Edit.cshtml" />
     <Content Include="Areas\Quantri\Views\Slides\Index.cshtml" />
     <Content Include="Areas\Quantri\Views\Slides\ForHomepage.cshtml" />
+    <Content Include="Areas\Quantri\Views\Collections\Create.cshtml" />
+    <Content Include="Areas\Quantri\Views\Collections\Delete.cshtml" />
+    <Content Include="Areas\Quantri\Views\Collections\Details.cshtml" />
+    <Content Include="Areas\Quantri\Views\Collections\Edit.cshtml" />
+    <Content Include="Areas\Quantri\Views\Collections\Index.cshtml" />
+    <Content Include="Areas\Quantri\Views\Collections\_form.cshtml" />
+    <Content Include="Areas\Quantri\Views\Collections\_image.cshtml" />
+    <Content Include="Areas\Quantri\Views\Collections\_PartialIndex.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -705,6 +719,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Quantri\Data\" />
+    <Folder Include="Photos\News\" />
     <Folder Include="Photos\Slides\" />
   </ItemGroup>
   <ItemGroup>
