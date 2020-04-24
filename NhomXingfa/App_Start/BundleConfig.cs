@@ -33,6 +33,7 @@ namespace NhomXingfa
                 "~/vendors/counter-up/jquery.waypoints.min.js",
                 "~/vendors/counter-up/jquery.counterup.js",
                 "~/js/mail-script.js",
+                "~/js/custom.js",
                       "~/js/theme.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
