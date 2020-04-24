@@ -17,8 +17,8 @@
         <div class="btn-toolbar">
             <a href="javascript:" class="btn btn-warning btn-label" id="btnAddGroupProduct"><i class="fa fa-shopping-cart"></i>Nhóm sản phẩm</a>
             <a href="javascript:" class="btn btn-label btn-info" id="btnUploadImage" productid="@Model.ProductID"><i class="fa fa-upload"></i>Upload ảnh</a>
-            <a href="/Products/Edit/@Model.ProductID" class="btn btn-success btn-label"><i class="fa fa-edit"></i>Chỉnh sửa</a>
-            <a href="/Products/Index" class="btn btn-primary">Quay Lại</a>
+            <a href="/Quantri/Products/Edit/@Model.ProductID" class="btn btn-success btn-label"><i class="fa fa-edit"></i>Chỉnh sửa</a>
+            <a href="/Quantri/Products/Index" class="btn btn-primary">Quay Lại</a>
         </div>
     </div>
 </div>
@@ -43,12 +43,9 @@
                                         </tr>
                                     </thead> -->
                                     <tbody>
+                                        
                                         <tr>
-                                            <td>DM Cha</td>
-                                            <td><a href="#">@Model.Category.CategoryName</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>DM Con</td>
+                                            <td>DM SP</td>
                                             <td><a href="#">@Model.Category1.CategoryName</a></td>
                                         </tr>
                                         <tr>

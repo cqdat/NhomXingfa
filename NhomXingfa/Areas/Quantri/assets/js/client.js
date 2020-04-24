@@ -18,7 +18,7 @@
 
         if (cateid > 0) {
             $.ajax({
-                url: '/CategoryImage/GetChildCategory',
+                url: '/Quantri/CategoryImage/GetChildCategory',
                 contentType: 'application/json; charset=utf-8',
                 data: { cateid: cateid },
                 type: 'GET',
@@ -91,7 +91,7 @@
 
         if (conf) {
             $.ajax({
-                url: '/products/XoaGroupProduct',
+                url: '/Quantri/products/XoaGroupProduct',
                 contentType: 'application/html; charset=utf-8',
                 data: { groupid: groupid },
                 type: 'GET',
@@ -130,7 +130,7 @@
 
 
         $.ajax({
-            url: '/products/SaveGroupProduct',
+            url: '/Quantri/products/SaveGroupProduct',
             contentType: 'application/html; charset=utf-8',
             data: { productid: productid, groupcode: groupcode, groupid: groupid, xaction: xaction },
             type: 'GET',
@@ -158,7 +158,7 @@
         var hdProductIDDetail = $("#hdProductIDDetail").val().trim();
 
         $.ajax({
-            url: '/products/GetGroupProduct',
+            url: '/Quantri/products/GetGroupProduct',
             contentType: 'application/html; charset=utf-8',
             data: { productid: hdProductIDDetail },
             type: 'GET',

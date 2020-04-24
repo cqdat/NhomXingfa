@@ -1,0 +1,40 @@
+﻿@using NhomXingfa.Areas.Quantri.Utilities
+@using NhomXingfa.Areas.Quantri.Models.DataModels
+@model IEnumerable<ProductGroup>
+<div class="events">
+    <ul id="flexiselDemo1">
+        @foreach (var i in Model)
+        {
+            <li>
+                <div class="w3layouts_event_grid">
+                    <div class="w3_agile_event_grid1">
+                        <img src="@WebConstants.ImgProductShow/@i.Product.Images" style="height:207px" alt="@i.Product.ProductName" class="img-responsive" />
+                        <div class="w3_agile_event_grid1_pos">
+                            <p>@i.Product.Price</p>
+                        </div>
+
+                    </div>
+                    <div class="agileits_w3layouts_event_grid1">
+                        <h5><a href="#" data-toggle="modal" data-target="#myModal">@i.Product.ProductName</a></h5>
+                        <p>
+                            @{
+                                var shortString = "";
+                                if (i.Product.ShortDescription.Length >= 90)
+                                {
+                                    shortString = i.Product.ShortDescription.Substring(0, 102);
+                                }
+                                else
+                                {
+                                    shortString = i.Product.ShortDescription;
+                                }
+                            }
+
+                            @shortString  ...
+                        </p>
+                    </div>
+                </div>
+            </li>
+        }
+
+    </ul>
+</div>
