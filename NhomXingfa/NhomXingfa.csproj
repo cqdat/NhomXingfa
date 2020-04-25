@@ -631,6 +631,7 @@
     <Content Include="img\b2.jpg" />
     <Content Include="img\b3.jpg" />
     <Content Include="img\banner\banner-bg.jpg" />
+    <Content Include="img\banner\banner-bg1.jpg" />
     <Content Include="img\blog\add.jpg" />
     <Content Include="img\blog\author.png" />
     <Content Include="img\blog\blog1.png" />
@@ -1005,6 +1006,10 @@
     <Content Include="vendors\linericon\fonts\Linearicons-Free.woff" />
     <Content Include="vendors\linericon\fonts\Linearicons-Free.woff2" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Home\_baiVietServices.cshtml" />
+    <Content Include="Views\Home\_duAnTieuBieu.cshtml" />
+    <Content Include="Views\Home\_lastNews.cshtml" />
+    <Content Include="Views\Shared\_headMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
