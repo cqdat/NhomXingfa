@@ -44,6 +44,19 @@ namespace NhomXingfa
                defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
            );
 
+            //các bài viết
+            routes.MapRoute(
+               name: "DuAn",
+               url: "du-an",
+               defaults: new { controller = "Projects", action = "Index", id = UrlParameter.Optional }
+           );
+            //các bài viết
+            routes.MapRoute(
+               name: "DuAnChiTiet",
+               url: "chi-tiet-du-an/{url}-{id}",
+               defaults: new { controller = "Projects", action = "Details", id = UrlParameter.Optional }
+           );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
