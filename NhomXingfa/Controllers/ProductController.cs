@@ -20,7 +20,11 @@ namespace NhomXingfa.Controllers
 
             model.category = db.Categories.Find(id);
 
-            if (model.category.Parent == 0)
+            if(id==null)
+            {
+                model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true).ToList();
+            }
+            else if (model.category.Parent == 0)
             {
                 model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryIDParent == id).ToList();
             }

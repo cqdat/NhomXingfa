@@ -769,6 +769,9 @@
     <Content Include="js\popper.js" />
     <Content Include="js\stellar.js" />
     <Content Include="js\theme.js" />
+    <Content Include="Photos\Collections\Cua-nhom-4-Canh_762.jpg" />
+    <Content Include="Photos\Collections\Cua2Canh_408.jpg" />
+    <Content Include="Photos\Collections\du-anCua2Canh_108.jpg" />
     <Content Include="Photos\Products\Cua-nhom-4-Canh_136.jpg" />
     <Content Include="Photos\Products\Cua2Canh_598.jpg" />
     <Content Include="Photos\Products\Cua2Canh_81.jpg" />
@@ -1010,6 +1013,9 @@
     <Content Include="Views\Home\_duAnTieuBieu.cshtml" />
     <Content Include="Views\Home\_lastNews.cshtml" />
     <Content Include="Views\Shared\_headMenu.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\_detail.cshtml" />
+    <Content Include="Views\Product\_index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
