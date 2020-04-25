@@ -58,17 +58,17 @@ namespace NhomXingfa
                defaults: new { controller = "Projects", action = "Details", id = UrlParameter.Optional }
            );
 
-        //    routes.MapRoute(
-        //    name: "chitietduan",
-        //    url: "ch-tiet-du-an/{url}-{id}",
-        //    defaults: new { controller = "projects", action = "details", id = UrlParameter.Optional }
-        //);
+            routes.MapRoute(
+            name: "chitietduan",
+            url: "ch-tiet-du-an/{url}-{id}",
+            defaults: new { controller = "projects", action = "details", id = UrlParameter.Optional }
+        );
 
-          //  routes.MapRoute(
-          //    name: "duan",
-          //    url: "du-an",
-          //    defaults: new { controller = "projects", action = "index", id = UrlParameter.Optional }
-          //);
+            routes.MapRoute(
+              name: "duan",
+              url: "du-an",
+              defaults: new { controller = "projects", action = "index", id = UrlParameter.Optional }
+          );
 
            
 
