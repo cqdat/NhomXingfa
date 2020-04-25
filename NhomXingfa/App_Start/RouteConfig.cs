@@ -37,6 +37,7 @@ namespace NhomXingfa
                defaults: new { controller = "news", action = "index", id = UrlParameter.Optional }
            );
 
+
             //các bài viết
             routes.MapRoute(
                name: "baiviet",
