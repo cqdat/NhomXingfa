@@ -17,9 +17,15 @@ namespace NhomXingfa.Models
     }
     public class MenuViewModel
     {
-        public Information Phone{ get; set; }
+        public Information Phone { get; set; }
         public Information Email { get; set; }
         public List<Category> lstProductCategory { get; set; }
+        public List<Category> lstNewsCategory { get; set; }
+    }
+
+    public class FooterViewModel
+    {
+        public List<Information> lstInformation { get; set; }
         public List<Category> lstNewsCategory { get; set; }
     }
 }
