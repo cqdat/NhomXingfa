@@ -43,6 +43,16 @@ namespace NhomXingfa.Controllers
             ViewBag.URLGioiThieu = gt.SEOUrlRewrite + "-" + gt.BlogID;
             return PartialView("_headMenu", model);
         }
+
+        public PartialViewResult loadFooter()
+        {
+            //var model = db.MENUs.Where(q => q.IdCha == 0).OrderBy(o => o.ThuTu);
+
+            FooterViewModel model = new FooterViewModel();
+            model.lstInformation = db.Information.Take(3).ToList();
+            model.lstNewsCategory = db.Categories.Where(c => c.IsActive == true && c.TypeCate == WebConstants.CategoryNews).ToList();
+            return PartialView("_footer", model);
+        }
         #endregion
 
         public ActionResult About(int? id)
@@ -57,6 +67,7 @@ namespace NhomXingfa.Controllers
             model.lstCategory = db.Categories.Where(c => c.IsActive == true && c.TypeCate == WebConstants.CategoryProduct).ToList();
             model.lstLastNews = db.Blogs.Where(q => q.IsActive == true && q.TypeBlog == WebConstants.BlogNews).OrderByDescending(q => q.LastModify).Take(5).ToList();
             ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().BlogName;
+            //ViewBag.URLGioiThieu = gt.SEOUrlRewrite + "-" + gt.BlogID;
             return View(model);
         }
 
