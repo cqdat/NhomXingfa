@@ -5253,3 +5253,9 @@ h6 {
     .footer-area .footer-bottom .footer-social a:hover {
         background: #71cd14
     }
+
+.popular_post_widget .post_item img
+{
+    width:80px;
+    max-width:80px !important;
+}

@@ -1,0 +1,24 @@
+﻿@model NhomXingfa.Models.DetailNewsViewModel
+@{
+    ViewBag.Title = Model.blog.BlogName;
+}
+
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0">
+                    <h2>Chi tiết</h2>
+                    <p>@Model.blog.BlogName</p>
+                </div>
+                <div class="page_link">
+                    <a href="/">Trang Chủ</a>
+                    <a href="/tin-tuc/@Model.category.SEOUrlRewrite-@Model.category.CategoryID">@Model.category.CategoryName </a>
+                    <a href="javascript:">@Model.blog.BlogName</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.Partial("_detail", Model)

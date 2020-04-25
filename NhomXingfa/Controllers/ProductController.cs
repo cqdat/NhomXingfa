@@ -16,7 +16,7 @@ namespace NhomXingfa.Controllers
         {
             ProductViewModel model = new ProductViewModel();
 
-            model.categories = db.Categories.Where(q => q.IsActive == true).ToList();
+            model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1).ToList();
 
             model.category = db.Categories.Find(id);
 
@@ -41,6 +41,7 @@ namespace NhomXingfa.Controllers
 
             model.product = db.Products.Find(id);
             model.category = db.Categories.Find(model.product.CategoryID);
+            model.listimage = db.ProductImages.Where(q => q.ProductID == id).ToList();
 
             return View(model);
         }
