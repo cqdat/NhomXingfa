@@ -1,0 +1,226 @@
+﻿@using NhomXingfa.Models
+@using NhomXingfa.Areas.Quantri.Utilities
+@model ProjectViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Helpers h = new Helpers();
+}
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0">
+                    <h2>Blog</h2>
+                    <p>Very us move be blessed multiply night</p>
+                </div>
+                <div class="page_link">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Blog </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="blog_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+
+
+                    <input type="text" class="form-control" style="margin-bottom:5px" placeholder="Nhập nội dung tìm kiếm" id="txtNoiDung">
+
+                    <div class="row" id="lstProject">
+
+
+                    </div>
+                    <select class="form-control" tabindex="-1" id="ddlPageSize">
+                        <option value="5">5 dòng</option>
+                        <option value="10">10 dòng</option>
+                        <option value="15" selected>15 dòng</option>
+                        <option value="20">20 dòng</option>
+                        <option value="-1">Tất cả</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">Danh mục sản phẩm</h4>
+                        <ul class="list cat-list">
+                            @foreach (var j in Model.lstCatetory)
+                            {
+                                <li>
+                                    <a href="#" class="d-flex">
+                                        <p>@j.CategoryName</p>
+                                        <p> (@h.CountTotalSP(j.CategoryID))</p>
+                                    </a>
+                                </li>
+                            }
+                            
+                        </ul>
+                    </aside>
+
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Tin tức nổi bật</h3>
+                        @foreach (var k in Model.lstNews)
+                        {
+                            <div class="media post_item">
+                                <img src="@WebConstants.imgNewsURLShow/@k.ImageURL" style="width:80px" alt="post">
+                                <div class="media-body">
+                                    <a href="single-blog.html">
+                                        <h3>
+
+                                            @{
+                                                var shortString = "";
+                                                if (k.BlogName.Length >= 20)
+                                                {
+                                                    shortString = k.BlogName.Substring(0, 20);
+                                                }
+                                                else
+                                                {
+                                                    shortString = k.BlogName;
+                                                }
+                                            }
+                                            @k.BlogName
+                                            @*@shortString  ...*@
+                                        </h3>
+                                    </a>
+                                    <p>@Convert.ToDateTime(k.Created).ToString(WebConstants.DateFormatVI)</p>
+                                </div>
+                            </div>
+                        }
+                        
+                    </aside>
+                    <aside class="single_sidebar_widget tag_cloud_widget">
+                        <h4 class="widget_title">Tag Clouds</h4>
+                        <ul class="list">
+                            <li>
+                                <a href="#">Nhôm kính</a>
+                            </li>
+                            <li>
+                                <a href="#">Nhôm Xingfa</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Kính Cường lực</a>
+                            </li>
+                            <li>
+                                <a href="#">Nhôm Việt Nam</a>
+                            </li>
+                            <li>
+                                <a href="#">Mặt dựng</a>
+                            </li>
+                            <li>
+                                <a href="#">Xingfa Bình Dương</a>
+                            </li>
+                            <li>
+                                <a href="#">Nhôm kính giá rẻ</a>
+                            </li>
+                        </ul>
+                    </aside>
+
+
+                    <aside class="single_sidebar_widget instagram_feeds">
+                        <h4 class="widget_title">Instagram Feeds</h4>
+                        <ul class="instagram_row flex-wrap">
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/img/instagram/widget-i1.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/img/instagram/widget-i2.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/img/instagram/widget-i3.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/img/instagram/widget-i4.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/img/instagram/widget-i5.png" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-fluid" src="~/img/instagram/widget-i6.png" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+
+
+                    <aside class="single_sidebar_widget newsletter_widget">
+                        <h4 class="widget_title">Newsletter</h4>
+
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Enter email" required="">
+                            </div>
+                            <button class="main_btn rounded-0 w-100" type="submit">Subscribe</button>
+                        </form>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section scripts{
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+         $.ajaxSetup({
+                cache: false
+         });
+        filter();
+
+        $('body').on('change', '#ddlPageSize', function () {
+            filter();
+        });
+
+        //textbox name
+        $('.txtSearch').on('input', function () {
+            filter();
+        });
+
+        //Drop change Dept
+            $('.drChange').change(function () {
+                filter();
+            });
+
+
+
+    });
+
+    function filter() {
+
+        $.ajax({
+            //url: '/BDS_TinTuc/_PartialIndex',
+            url: '@Url.Action("_partialIndex", "Projects")',
+            data: {
+                pageSize: parseInt($('#ddlPageSize').val()),
+            },
+            method: 'GET',
+            dataType: 'html',
+            success: function (data) {
+                $('#lstProject').html(data);
+                $("#lbl_Message").html("");
+            }
+        });
+
+    }
+    </script>
+}
+

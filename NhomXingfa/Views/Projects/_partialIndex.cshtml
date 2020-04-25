@@ -1,0 +1,57 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using NhomXingfa.Areas.Quantri.Models.DataModels
+@using NhomXingfa.Areas.Quantri.Utilities;
+@model IPagedList<NhomXingfa.Areas.Quantri.Models.DataModels.Product>
+@{
+    Helpers h = new Helpers();
+}
+@foreach (var i in Model)
+{
+        <div class="col-lg-6">
+            <article class="blog_item">
+                <div class="blog_item_img">
+                    <img class="card-img rounded-0" src="@WebConstants.ImgProductShow/@i.Images" style="height:200px" alt="@i.ProductName">
+                    <a href="#" class="blog_item_date">
+                        <h3>@Convert.ToDateTime(i.Created).Day.ToString()</h3>
+                        <p>Tháng @Convert.ToDateTime(i.Created).Month.ToString()</p>
+                    </a>
+                </div>
+
+                <div class="blog_details">
+                    <a class="d-inline-block" href="single-blog.html">
+                        <h2>@i.ProductName</h2>
+                    </a>
+                    <p>
+                        @i.ShortDescription
+                    </p>
+                    <ul class="blog-info-link">
+                        <li><a href="#"><i class="ti-user"></i> @i.User.UserName</a></li>
+                        <li><a href="#"><i class="ti-comments"></i> @i.CountView Lượt xem</a></li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+  
+}
+<div class="pagination">
+    @Html.PagedListPager(Model, pageNumber => Url.Action("_partialIndex",
+       new
+       {
+           pageNumber,
+           pageSize = ViewBag.pageSize,
+           SanPham = ViewBag.SanPham
+       }),
+        PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+        new PagedListRenderOptions()
+        {
+            Display = PagedListDisplayMode.IfNeeded,
+            DisplayItemSliceAndTotal = true
+        }, new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "lstProject"
+        }))
+</div>
+    
