@@ -1,0 +1,24 @@
+﻿@using NhomXingfa.Areas.Quantri.Models.DataModels
+@using NhomXingfa.Areas.Quantri.Models
+@using NhomXingfa.Areas.Quantri.Utilities
+@using NhomXingfa.Models
+@model IEnumerable<Blog>
+<section class="feature-area section_gap_bottom_custom">
+    <div class="container">
+        <div class="row">
+            @foreach (var i in Model)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature">
+                        <a href="#" class="title">
+                            <i class="@i.Descript"></i>
+                            <h3>@i.BlogName</h3>
+                        </a>
+                       <a href="">Xem Chi tiết</a>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
+</section>

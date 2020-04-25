@@ -29,6 +29,12 @@ namespace NhomXingfa.Areas.Quantri.Utilities
             }
             
         }
+        public int CountTotalSP(int? CateId)
+        {
+
+            int count = db.Products.Where(p => p.CategoryID == CateId).ToList().Count();
+            return count;
+        }
 
         public List<Category> lstGetChildMenu(int?ParentId)
         {
@@ -139,8 +145,11 @@ namespace NhomXingfa.Areas.Quantri.Utilities
             {
                 data += q.Permission.PermissionName + ", ";
             }
-
-            return data.Substring(0, data.Length - 2);
+            if(data.Length > 2)
+            {
+                data = data.Substring(0, data.Length - 2);
+            }
+            return data;
         }
 
     }

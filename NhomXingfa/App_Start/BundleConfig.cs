@@ -20,12 +20,36 @@ namespace NhomXingfa
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/jquery.unobtrusive-ajax.min.js",
-                      "~/Scripts/bootstrap.js"));
+                "~/js/jquery-3.4.1.min.js",
+                "~/js/popper.js",
+                "~/js/bootstrap.min.js",
+                "~/js/stellar.js",
+                "~/vendors/lightbox/simpleLightbox.min.js",
+                "~/vendors/nice-select/js/jquery.nice-select.min.js",
+                "~/vendors/isotope/imagesloaded.pkgd.min.js",
+                "~/vendors/isotope/isotope-min.js",
+                "~/vendors/owl-carousel/owl.carousel.min.js",
+                "~/js/jquery.ajaxchimp.min.js",
+                "~/vendors/counter-up/jquery.waypoints.min.js",
+                "~/vendors/counter-up/jquery.counterup.js",
+                "~/js/mail-script.js",
+                "~/js/custom.js",
+                      "~/js/theme.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      //"~/Content/bootstrap.css",
+                      "~/css/bootstrap.css",
+                      "~/vendors/linericon/style.css",
+                      "~/css/font-awesome.min.css",
+                      "~/css/themify-icons.css",
+                      "~/css/flaticon.css",
+                      "~/vendors/owl-carousel/owl.carousel.min.css",
+                      "~/vendors/lightbox/simpleLightbox.css",
+                      "~/vendors/nice-select/css/nice-select.css",
+                      "~/vendors/animate-css/animate.css",
+                      "~/vendors/jquery-ui/jquery-ui.css",
+                      "~/css/style.css",
+                      "~/css/responsive.css"));
 
             #region Admin
             bundles.Add(new ScriptBundle("~/Areas/bundles/jquery").Include(
@@ -68,7 +92,7 @@ namespace NhomXingfa
                       "~/Areas/Quantri/assets/js/placeholdr.js",
                       "~/Areas/Quantri/assets/js/application.js",
                       "~/Areas/Quantri/assets/demo/demo.js",
-                        "~/Areas/Quantri/Scripts/client.js"
+                        "~/Areas/Quantri/assets/js/client.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Areas/Content/css").Include(

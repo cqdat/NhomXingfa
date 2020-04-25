@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>@ViewBag.Title - Control Panel</title>
+    <title>@ViewBag.Title - Tân Thời</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Avant">
@@ -21,7 +21,7 @@
     <!-- The following CSS are included as plugins and can be removed if unused-->
 
     @Styles.Render("~/Areas/Content/css")
-    @*@Styles.Render("~/Content/CSSModify")*@
+    @Styles.Render("~/Areas/Content/bundleupload")
     @*@Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
@@ -33,7 +33,7 @@
             <a class="navbar-brand" href="/">Tân Thời</a>
         </div>
 
-        @*@Html.Partial("_logged")*@
+        @Html.Partial("_logged")
 
     </header>
 
@@ -59,11 +59,13 @@
     </div> <!-- page-container -->
 
     @Scripts.Render("~/Areas/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Areas/bundles/js")
+
     @Scripts.Render("~/Areas/bundles/jqueryval")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/Areas/bundles/bundleupload")
-        @Scripts.Render("~/Areas/bundles/Blueimp-Gallerry2")
+    @Scripts.Render("~/Areas/bundles/Blueimp-Gallerry2")
 
 </body>
 </html>

@@ -98,11 +98,12 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         {
             if (ModelState.IsValid)
             {
+                category.Parent = 0;
                 category.TypeCate = WebConstants.CategoryProduct;
                 category.SEOUrlRewrite = Helpers.ConvertToUpperLower(category.CategoryName);
                 db.Categories.Add(category);
                 db.SaveChanges();
-                Success(string.Format("Thêm mới <b>{0}</b> thành công, Bạn có thể chọn slide hình ảnh cho <b>{0}</b>.", category.CategoryName), true);
+                Success(string.Format("Thêm mới <b>{0}</b> thành công.", category.CategoryName), true);
                 //return RedirectToAction("Index");
                 return RedirectToAction("Edit", "Categories", new { id = category.CategoryID, Area = "Quantri" });
             }

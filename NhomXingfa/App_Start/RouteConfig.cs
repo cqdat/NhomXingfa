@@ -14,10 +14,31 @@ namespace NhomXingfa
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                 name: "product",
+                 url: "san-pham",
+                 defaults: new { controller = "product", action = "index", id = UrlParameter.Optional }
+             );
+
+            routes.MapRoute(
+                 name: "product2",
+                 url: "san-pham/{url}-{id}",
+                 defaults: new { controller = "product", action = "index", id = UrlParameter.Optional }
+             );
+
+            routes.MapRoute(
+                name: "chitiet",
+                url: "chi-tiet-san-pham/{url}-{id}",
+                defaults: new { controller = "product", action = "detail", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            
+
         }
     }
 }

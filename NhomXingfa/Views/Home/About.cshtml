@@ -1,7 +1,164 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@using System.Configuration
+@using NhomXingfa.Areas.Quantri.Models
+@using NhomXingfa.Areas.Quantri.Utilities
+@using NhomXingfa.Models
+@model AboutUsViewModel
 
-<p>Use this area to provide additional information.</p>
+@{
+    ViewBag.Title = Model.aboutus.SEOTitle;
+    Helpers h = new Helpers();
+}
+@section metatags
+{
+    <meta name="keywords" content="@Model.aboutus.SEOKeywords" />
+    <meta name="description" content="@Model.aboutus.SEOMetadescription" />
+}
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0">
+                    <h2>Giới Thiệu</h2>
+                    <p>Chất lượng là phương châm để chúng tôi tồn tại</p>
+                </div>
+                <div class="page_link">
+                    <a href="/">Trang chủ</a>
+                    
+                    <a href="single-blog.html">Giới thiệu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="blog_area single-post-area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+
+                    <div class="blog_details">
+                        @*<h2>
+                                Second divided from form fish beast made every of seas
+                                all gathered us saying he our
+                            </h2>*@
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><a href="#"><i class="ti-user"></i> @Model.aboutus.User.UserName</a></li>
+                            <li><a href="#"><i class="ti-time"></i> @Convert.ToDateTime(Model.aboutus.LastModify).ToString(WebConstants.DateFormatVI)</a></li>
+                            <li><a href="#"><i class="ti-comments"></i> @Model.aboutus.CountView Lượt xem</a></li>
+
+                        </ul>
+                       
+                        <p>
+                            @Html.Raw(Model.aboutus.Content)
+                        </p>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">Cùng chuyên mục</h4>
+                        <ul class="list cat-list">
+                            @foreach (var j in Model.lstAboutMoreLeftMenu)
+                            {
+                                <li>
+                                    <a href="#" class="d-flex">
+                                        <p>@j.BlogName</p>
+                                        
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </aside>
+
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">Chủng loại Sản phẩm</h4>
+                        <ul class="list cat-list">
+                            @foreach (var j in Model.lstCategory)
+                            {
+                                <li>
+                                    <a href="#" class="d-flex">
+                                        <p>@j.CategoryName</p>
+                                        <p> (@h.CountTotalSP(j.CategoryID))</p>
+                                    </a>
+                                </li>
+                            }
+                           
+                        </ul>
+                    </aside>
+
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Tin tức mới</h3>
+                        <div class="media post_item">
+                            <img src="img/blog/popular-post/post1.jpg" alt="post">
+                            <div class="media-body">
+                                <a href="single-blog.html">
+                                    <h3>From life was you fish...</h3>
+                                </a>
+                                <p>January 12, 2019</p>
+                            </div>
+                        </div>
+                        <div class="media post_item">
+                            <img src="img/blog/popular-post/post2.jpg" alt="post">
+                            <div class="media-body">
+                                <a href="single-blog.html">
+                                    <h3>The Amazing Hubble</h3>
+                                </a>
+                                <p>02 Hours ago</p>
+                            </div>
+                        </div>
+                        <div class="media post_item">
+                            <img src="img/blog/popular-post/post3.jpg" alt="post">
+                            <div class="media-body">
+                                <a href="single-blog.html">
+                                    <h3>Astronomy Or Astrology</h3>
+                                </a>
+                                <p>03 Hours ago</p>
+                            </div>
+                        </div>
+                        <div class="media post_item">
+                            <img src="img/blog/popular-post/post4.jpg" alt="post">
+                            <div class="media-body">
+                                <a href="single-blog.html">
+                                    <h3>Asteroids telescope</h3>
+                                </a>
+                                <p>01 Hours ago</p>
+                            </div>
+                        </div>
+                    </aside>
+                    <aside class="single_sidebar_widget tag_cloud_widget">
+                        <h4 class="widget_title">Từ khóa</h4>
+                        <ul class="list">
+                            <li>
+                                <a href="#">Nhôm kính</a>
+                            </li>
+                            <li>
+                                <a href="#">Nhôm Xingfa</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Kính Cường lực</a>
+                            </li>
+                            <li>
+                                <a href="#">Nhôm Việt Nam</a>
+                            </li>
+                            <li>
+                                <a href="#">Mặt dựng</a>
+                            </li>
+                            <li>
+                                <a href="#">Xingfa Bình Dương</a>
+                            </li>
+                            <li>
+                                <a href="#">Nhôm kính giá rẻ</a>
+                            </li>
+                        </ul>
+                    </aside>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
