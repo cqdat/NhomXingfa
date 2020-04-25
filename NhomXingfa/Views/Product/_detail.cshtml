@@ -1,4 +1,6 @@
-﻿<div class="product_image_area">
+﻿@model NhomXingfa.Models.DetailProductViewModel
+
+<div class="product_image_area">
     <div class="container">
         <div class="row s_product_inner">
             <div class="col-lg-6">
@@ -46,25 +48,25 @@
             </div>
             <div class="col-lg-5 offset-lg-1">
                 <div class="s_product_text">
-                    <h3>Faded SkyBlu Denim Jeans</h3>
-                    <h2>$149.99</h2>
+                    <h3>@Model.product.ProductName</h3>
+                    <h2>@Model.product.Price</h2>
                     <ul class="list">
                         <li>
-                            <a class="active" href="#">
-                                <span>Category</span> : Household
+                            <a class="active" href="/san-pham/@Model.category.SEOUrlRewrite-@Model.category.CategoryID">
+                                <span>Loại</span> : @Model.category.CategoryName
                             </a>
                         </li>
-                        <li>
-                            <a href="#"> <span>Availibility</span> : In Stock</a>
-                        </li>
+                        @if (Model.product.InStock == true)
+                        {
+                            <li>
+                                <a href="#"> <span>Còn hàng</span> : 0979.77.11.33</a>
+                            </li>
+                        }
                     </ul>
                     <p>
-                        Mill Oil is an innovative oil filled radiator with the most
-                        modern technology. If you are looking for something that can
-                        make your interior look awesome, and at the same time give you
-                        the pleasant warm feeling during the winter.
+                       @Model.product.ShortDescription
                     </p>
-                    <div class="product_count">
+                    @*<div class="product_count">
                         <label for="qty">Quantity:</label>
                         <input type="text"
                                name="qty"
@@ -83,9 +85,9 @@
                                 type="button">
                             <i class="lnr lnr-chevron-down"></i>
                         </button>
-                    </div>
+                    </div>*@
                     <div class="card_area">
-                        <a class="main_btn" href="#">Add to Cart</a>
+                        <a class="main_btn" href="#">Liên Hệ</a>
                         <a class="icon_btn" href="#">
                             <i class="lnr lnr lnr-diamond"></i>
                         </a>

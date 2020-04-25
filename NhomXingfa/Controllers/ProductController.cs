@@ -37,7 +37,12 @@ namespace NhomXingfa.Controllers
 
         public ActionResult Detail(int? id)
         {
-            return View();
+            var model = new DetailProductViewModel();
+
+            model.product = db.Products.Find(id);
+            model.category = db.Categories.Find(model.product.CategoryID);
+
+            return View(model);
         }
     }
 }

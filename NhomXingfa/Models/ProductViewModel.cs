@@ -16,5 +16,6 @@ namespace NhomXingfa.Models
     public class DetailProductViewModel
     {
         public Product product { get; set; }
+        public Category category { get; set; }
     }
 }
