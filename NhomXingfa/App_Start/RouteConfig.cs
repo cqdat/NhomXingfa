@@ -32,6 +32,12 @@ namespace NhomXingfa
             );
 
             routes.MapRoute(
+               name: "tintuc",
+               url: "tin-tuc/{url}-{id}",
+               defaults: new { controller = "news", action = "index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

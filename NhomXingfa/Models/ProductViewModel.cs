@@ -18,4 +18,11 @@ namespace NhomXingfa.Models
         public Product product { get; set; }
         public Category category { get; set; }
     }
+
+    public class NewsViewModel
+    {
+        public List<Blog> blogs { get; set; }
+        public List<Category> categories { get; set; }
+        public Category category { get; set; }
+    }
 }
