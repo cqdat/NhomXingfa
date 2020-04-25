@@ -17,6 +17,7 @@ namespace NhomXingfa.Models
     {
         public Product product { get; set; }
         public Category category { get; set; }
+        public List<ProductImage> listimage { get; set; }
     }
 
     public class NewsViewModel
@@ -24,5 +25,14 @@ namespace NhomXingfa.Models
         public List<Blog> blogs { get; set; }
         public List<Category> categories { get; set; }
         public Category category { get; set; }
+        public List<Blog> recent { get; set; }
+    }
+
+    public class DetailNewsViewModel
+    {
+        public Blog blog { get; set; }
+        public List<Category> categories { get; set; }
+        public Category category { get; set; }
+        public List<Blog> recents { get; set; }
     }
 }

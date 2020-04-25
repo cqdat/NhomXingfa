@@ -37,6 +37,7 @@ namespace NhomXingfa
                defaults: new { controller = "news", action = "index", id = UrlParameter.Optional }
            );
 
+
             //các bài viết
             routes.MapRoute(
                name: "baiviet",
@@ -56,6 +57,26 @@ namespace NhomXingfa
                url: "chi-tiet-du-an/{url}-{id}",
                defaults: new { controller = "Projects", action = "Details", id = UrlParameter.Optional }
            );
+
+            routes.MapRoute(
+            name: "chitietduan",
+            url: "ch-tiet-du-an/{url}-{id}",
+            defaults: new { controller = "projects", action = "details", id = UrlParameter.Optional }
+        );
+
+            routes.MapRoute(
+              name: "duan",
+              url: "du-an",
+              defaults: new { controller = "projects", action = "index", id = UrlParameter.Optional }
+          );
+
+           
+
+            routes.MapRoute(
+                name: "chitiettt",
+                url: "chi-tiet-tin-tuc/{url}-{id}",
+                defaults: new { controller = "news", action = "detail", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "Default",
