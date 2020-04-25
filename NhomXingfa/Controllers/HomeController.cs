@@ -55,6 +55,7 @@ namespace NhomXingfa.Controllers
             model.aboutus = db.Blogs.Where(b => b.IsActive == true && b.BlogID == id && (b.TypeBlog == WebConstants.BlogAboutUs || b.TypeBlog == WebConstants.BlogAboutUs_more)).FirstOrDefault();
             model.lstAboutMoreLeftMenu = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs || b.TypeBlog == WebConstants.BlogAboutUs_more && b.BlogID != id).OrderBy(c => c.Sort).ToList();
             model.lstCategory = db.Categories.Where(c => c.IsActive == true && c.TypeCate == WebConstants.CategoryProduct).ToList();
+            model.lstLastNews = db.Blogs.Where(q => q.IsActive == true && q.TypeBlog == WebConstants.BlogNews).OrderByDescending(q => q.LastModify).Take(5).ToList();
             ViewBag.Title = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.BlogID == 3 && b.IsActive == true).FirstOrDefault().BlogName;
             return View(model);
         }

@@ -48,6 +48,10 @@ ul {
     padding: 0
 }
 
+img {
+    max-width: 100%;
+}
+
 .mt-40 {
     margin-top: 40px
 }
@@ -61,7 +65,7 @@ ul {
 }
 
 .section_gap {
-    padding: 20px 0px
+    padding: 5px 0px
 }
 
 @media (max-width: 991px) {
@@ -1426,7 +1430,7 @@ ul {
             }
 
 .single-post-area .blog_details {
-    padding-top: 26px
+    padding-top: 5px
 }
 
     .single-post-area .blog_details p {
