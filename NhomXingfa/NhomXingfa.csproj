@@ -1005,10 +1005,6 @@
     <Content Include="vendors\linericon\fonts\Linearicons-Free.woff" />
     <Content Include="vendors\linericon\fonts\Linearicons-Free.woff2" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Shared\_headMenu.cshtml" />
-    <Content Include="Views\Home\_duAnTieuBieu.cshtml" />
-    <Content Include="Views\Home\_lastNews.cshtml" />
-    <Content Include="Views\Home\_baiVietServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
