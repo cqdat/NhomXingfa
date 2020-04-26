@@ -3,7 +3,10 @@
 @model IndexViewModels
 @{
     var first = new NhomXingfa.Areas.Quantri.Models.DataModels.ProductGroup();
-    ViewBag.Title = "Home Page";
+
+    ViewBag.Title = "Nhôm kính Bình Dương, Nhôm kính giá rẻ Bình Dương ";
+
+
     if (Model.listSPMoi.Count > 0)
     {
         first = Model.listSPMoi.First();
@@ -13,6 +16,11 @@
         first = null;
     }
     int count = 0;
+}
+@section metatags
+{
+    <meta name="keywords" content="nhôm kính Bình Dương, nhôm kính giá rẻ Bình Dương , nội thất chung cư bình dương, nội thất bình dương, thi công nội thất bình dương" />
+    <meta name="description" content="Dịch vụ thi công nhôm kính Tân thời chúng tôi cung cấp các sản phẩm nhôm kính Xingfa giá rẻ nhưng chất lượng" />
 }
 <!--================Home Banner Area =================-->
 <section class="home_banner_area mb-40">
@@ -78,7 +86,7 @@
                             <img class="img-fluid" src="@WebConstants.ImgProductShow\@first.Product.Images" alt="" />
                         </div>
                         <h4>@first.Product.Price</h4>
-                        <a href="/chi-tiet/@first.Product.SEOUrlRewrite-@first.Product.ProductID" class="main_btn">Chi tiết</a>
+                        <a href="/san-pham-ct/@first.Product.SEOUrlRewrite-@first.Product.ProductID" class="main_btn">Chi tiết</a>
                     </div>
                 }
             </div>
@@ -102,12 +110,12 @@
                                                 <i class="ti-heart"></i>
                                             </a>
                                             @*<a href="#">
-                                                <i class="ti-shopping-cart"></i>
-                                            </a>*@
+                                                    <i class="ti-shopping-cart"></i>
+                                                </a>*@
                                         </div>
                                     </div>
                                     <div class="product-btm">
-                                        <a href="/chi-tiet/@q.Product.SEOUrlRewrite-@q.Product.ProductID" class="d-block">
+                                        <a href="/san-pham-ct/@q.Product.SEOUrlRewrite-@q.Product.ProductID" class="d-block">
                                             <h4>@q.Product.ProductName</h4>
                                         </a>
                                         <div class="mt-3">

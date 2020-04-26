@@ -9,18 +9,18 @@
     @RenderSection("metatags", false)
     <!-- Bootstrap CSS -->
     @*<link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="vendors/linericon/style.css" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/themify-icons.css" />
-    <link rel="stylesheet" href="css/flaticon.css" />
-    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css" />
-    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
-    <link rel="stylesheet" href="vendors/animate-css/animate.css" />
-    <link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css" />
-    
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />*@
+        <link rel="stylesheet" href="vendors/linericon/style.css" />
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/themify-icons.css" />
+        <link rel="stylesheet" href="css/flaticon.css" />
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
+        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css" />
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
+        <link rel="stylesheet" href="vendors/animate-css/animate.css" />
+        <link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css" />
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/responsive.css" />*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
@@ -28,6 +28,11 @@
 
 </head>
 <body>
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+    <div id="fb-root"></div>
+
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=501550580008785&autoLogAppEvents=1"></script>
+    
     <!--================Header Menu Area =================-->
     @{Html.RenderAction("loadMenu", "Home");}
     <!--================Header Menu Area =================-->
@@ -36,7 +41,7 @@
 
     <!--================ start footer Area  =================-->
     @{Html.RenderAction("loadFooter", "Home");}
-    
+
     <!--================ End footer Area  =================-->
 
     @Scripts.Render("~/bundles/jquery")

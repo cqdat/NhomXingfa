@@ -27,7 +27,7 @@ namespace NhomXingfa
 
             routes.MapRoute(
                 name: "chitiet",
-                url: "chi-tiet/{url}-{id}",
+                url: "san-pham-ct/{url}-{id}",
                 defaults: new { controller = "product", action = "detail", id = UrlParameter.Optional }
             );
 
@@ -58,16 +58,12 @@ namespace NhomXingfa
                defaults: new { controller = "Projects", action = "Details", id = UrlParameter.Optional }
            );
 
+            //các bài viết
             routes.MapRoute(
-            name: "chitietduan",
-            url: "ch-tiet-du-an/{url}-{id}",
-            defaults: new { controller = "projects", action = "details", id = UrlParameter.Optional }
-        );
-
-          
-
-           
-
+               name: "Contact",
+               url: "lien-he",
+               defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional }
+           );
 
             routes.MapRoute(
                 name: "Default",

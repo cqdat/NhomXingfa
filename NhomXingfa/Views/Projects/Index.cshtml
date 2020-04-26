@@ -53,7 +53,7 @@
                             @foreach (var j in Model.lstCategory)
                             {
                                 <li>
-                                    <a href="#" class="d-flex">
+                                    <a href="/san-pham/@j.SEOUrlRewrite-@j.CategoryID" class="d-flex">
                                         <p>@j.CategoryName</p>
                                         <p> (@h.CountTotalSP(j.CategoryID))</p>
                                     </a>
