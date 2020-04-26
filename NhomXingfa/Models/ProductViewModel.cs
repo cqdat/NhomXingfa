@@ -12,6 +12,7 @@ namespace NhomXingfa.Models
         public List<Category> categories { get; set; }
         public Category category { get; set; }
         public bool? isAll { get; set; }
+        public List<Product> listduan { get; set; }
     }
 
     public class DetailProductViewModel

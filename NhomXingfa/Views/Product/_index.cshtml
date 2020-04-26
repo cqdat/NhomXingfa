@@ -1,5 +1,8 @@
 ﻿@model NhomXingfa.Models.ProductViewModel
 @using NhomXingfa.Areas.Quantri.Utilities
+@{
+    var culture = new System.Globalization.CultureInfo("vi-VN");
+}
 
 <section class="cat_product_area section_gap">
     <div class="container">
@@ -39,8 +42,8 @@
                                                 <i class="ti-heart"></i>
                                             </a>
                                             @*<a href="#">
-                                                <i class="ti-shopping-cart"></i>
-                                            </a>*@
+                                                    <i class="ti-shopping-cart"></i>
+                                                </a>*@
                                         </div>
                                     </div>
                                     <div class="product-btm">
@@ -72,25 +75,85 @@
                                 @foreach (var q in Model.categories)
                                 {
                                     @*if (q.Parent == 0)
+            {
+                <li>
+                    <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID"><span class="text-danger"><b>@q.CategoryName</b></span></a>
+                </li>
+            }
+            else
+            {*@
+                                    if (Model.category.CategoryID == q.CategoryID)
                                     {
-                                        <li>
-                                            <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID"><span class="text-danger"><b>@q.CategoryName</b></span></a>
+                                        <li class="active">
+                                            <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID">@q.CategoryName</a>
                                         </li>
                                     }
                                     else
-                                    {*@
+                                    {
                                         <li>
                                             <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID">@q.CategoryName</a>
                                         </li>
+                                    }
                                     @*}*@
-                                }                              
+                                }
                             </ul>
                         </div>
                     </aside>
 
-                    
+                    @*<aside class="left_widgets p_filter_widgets">
+                        <div class="l_w_title">
+                            <h3>Color Filter</h3>
+                        </div>
+                        <div class="widgets_inner">
+                            <ul class="list">
+                                <li>
+                                    <a href="#">Black</a>
+                                </li>
+                                <li>
+                                    <a href="#">Black Leather</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">Black with red</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gold</a>
+                                </li>
+                                <li>
+                                    <a href="#">Spacegrey</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>*@
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget popular_post_widget">
+                            <h3 class="widget_title">Dự Án Nổi Bật</h3>
+                            @foreach (var q in Model.listduan)
+                            {
+                                <div class="media post_item">
+                                    <img src="@WebConstants.ImgProductShow\@q.Images" alt="post">
+                                    <div class="media-body">
+                                        <a href="/chi-tiet-du-an/@q.SEOUrlRewrite-@q.ProductID">
+                                            @if (q.ProductName.Length > 30)
+                                            {
+                                                <h3>@q.ProductName.Substring(0, 29) ...</h3>
+                                            }
+                                            else
+                                            {
+                                                <h3>@q.ProductName</h3>
+                                            }
+                                        </a>
+                                        <p>@q.Created.Value.ToString("MMMM dd, yyyy", culture)</p>
+                                    </div>
+                                </div>
+                            }
 
-                    
+
+                        </aside>
+                    </div>
+
+
+
+
 
 
                 </div>
