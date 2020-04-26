@@ -22,3 +22,18 @@
 </section>
 
 @Html.Partial("_detail", Model)
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $(".pull-right li").removeClass("active");
+
+            $(".pull-right li#menutt").addClass("active");
+
+        });
+    </script>
+}

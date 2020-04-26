@@ -11,6 +11,9 @@ namespace NhomXingfa.Models
         public List<Slide> lstHomeBanner { get; set; }
         public Blog blogGioiThieu { get; set; }
         public List<ProductGroup> lstProductNoibat { get; set; }
+
+        public List<ProductGroup> listSPMoi { get; set; }
+
         public List<Product> lstListProjects { get; set; }
         public List<Blog> lstLastNews { get; set; }
         public List<Blog> lstServices { get; set; }
