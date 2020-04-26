@@ -96,7 +96,7 @@ img {
 
 .main_title {
     text-align: center;
-    margin-bottom: 75px
+    margin-bottom: 15px
 }
 
 @media (max-width: 991px) {
@@ -731,7 +731,7 @@ img {
     }
 
 .blog-area {
-    padding-bottom: 110px
+    padding-bottom: 20px
 }
 
 @media (max-width: 991px) {
@@ -759,7 +759,7 @@ img {
         }
 
     .single-blog .short_details {
-        padding: 32px 0px 37px;
+        padding: 1px 0px 30px;
         transition: all 300ms linear 0s
     }
 
