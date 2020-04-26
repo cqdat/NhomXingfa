@@ -16,7 +16,8 @@ namespace NhomXingfa.Controllers
         {
             ProductViewModel model = new ProductViewModel();
 
-            model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1).ToList();            
+            model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1).ToList();
+            model.listduan = db.Products.Where(q => q.IsActive == true && q.ProductCode == "BST").OrderByDescending(o => o.ProductID).Take(5).ToList();
 
             if(id==null)
             {
