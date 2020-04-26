@@ -16,21 +16,24 @@ namespace NhomXingfa.Controllers
         {
             ProductViewModel model = new ProductViewModel();
 
-            model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1).ToList();
-
-            model.category = db.Categories.Find(id);
+            model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1).ToList();            
 
             if(id==null)
             {
+                model.isAll = true;
                 model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true).ToList();
             }
-            else if (model.category.Parent == 0)
-            {
-                model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryIDParent == id).ToList();
-            }
+            //else if (model.category.Parent == 0)
+            //{
+            //    model.isAll = false;
+            //    model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryIDParent == id).ToList();
+            //    model.category = db.Categories.Find(id);
+            //}
             else
             {
+                model.isAll = false;
                 model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
+                model.category = db.Categories.Find(id);
             }
             return View(model);
         }
@@ -39,9 +42,27 @@ namespace NhomXingfa.Controllers
         {
             var model = new DetailProductViewModel();
 
+            List<ImageData> listimage = new List<ImageData>();
+
             model.product = db.Products.Find(id);
             model.category = db.Categories.Find(model.product.CategoryID);
-            model.listimage = db.ProductImages.Where(q => q.ProductID == id).ToList();
+            var list = db.ProductImages.Where(q => q.ProductID == id).ToList();
+
+            foreach(var q in list)
+            {
+                ImageData i = new ImageData();
+                i.urlimg = q.URLImage;
+                i.urlthumb = q.ImagesThumb;
+                i.title = q.Title;
+                listimage.Add(i);
+            }
+
+            ImageData k = new ImageData();
+            k.urlimg = model.product.Images;
+            k.urlthumb = model.product.ImagesThumb;
+            k.title = model.product.SEOTitle;
+            listimage.Add(k);
+            model.listimage = listimage;
 
             return View(model);
         }

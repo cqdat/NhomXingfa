@@ -1,26 +1,55 @@
 ﻿@model NhomXingfa.Models.ProductViewModel
 @{
-    ViewBag.Title = Model.category.CategoryName;
+    if(Model.isAll == false)
+    {
+        ViewBag.Title = Model.category.CategoryName;
+    }
+    else
+    {
+        ViewBag.Title = "Tất cả sản phẩm";
+    }
+
 }
 
 
 
-    <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
-            <div class="container">
-                <div class="banner_content d-md-flex justify-content-between align-items-center">
-                    <div class="mb-3 mb-md-0">
-                        <h2>Danh mục sản phẩm</h2>
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0">
+                    <h2>Danh mục sản phẩm</h2>
+                    @if (Model.isAll == false)
+                    {
                         <p>@Model.category.CategoryName</p>
-                    </div>
-                    <div class="page_link">
-                        <a href="index.html">Trang Chủ</a>
-                        <a href="category.html">Sản Phẩm</a>
-                        <a href="category.html">@Model.category.CategoryName</a>
-                    </div>
+                    }
+                </div>
+                <div class="page_link">
+                    <a href="\">Trang Chủ</a>
+                    <a href="\san-pham">Sản Phẩm</a>
+                    @if (Model.isAll == false)
+                    {
+                        <a href="javascript:">@Model.category.CategoryName</a>
+                    }
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 @Html.Partial("_index", Model)
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $(".pull-right li").removeClass("active");
+
+            $(".pull-right li#menusp").addClass("active");
+
+        });
+    </script>
+}

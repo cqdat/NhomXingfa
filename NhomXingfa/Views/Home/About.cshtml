@@ -23,7 +23,7 @@
                 </div>
                 <div class="page_link">
                     <a href="/">Trang chủ</a>
-                    
+
                     <a href="single-blog.html">Giới thiệu</a>
                 </div>
             </div>
@@ -47,14 +47,14 @@
                             <li><a href="#"><i class="ti-comments"></i> @Model.aboutus.CountView Lượt xem</a></li>
 
                         </ul>
-                       
+
                         <p>
                             @Html.Raw(Model.aboutus.Content)
                         </p>
-                        
+
                     </div>
                 </div>
-                
+
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
@@ -66,7 +66,7 @@
                                 <li>
                                     <a href="/bai-viet/@j.SEOUrlRewrite-@j.BlogID" class="d-flex">
                                         <p>@j.BlogName</p>
-                                        
+
                                     </a>
                                 </li>
                             }
@@ -86,7 +86,7 @@
                                     </a>
                                 </li>
                             }
-                           
+
                         </ul>
                     </aside>
 
@@ -99,7 +99,7 @@
                                 <div class="media-body">
                                     <a href="single-blog.html">
                                         <h3>
-                                           
+
                                             @{
                                                 var shortString = "";
                                                 if (k.BlogName.Length >= 20)
@@ -120,7 +120,7 @@
                             </div>
                         }
 
-                       
+
                     </aside>
                     <aside class="single_sidebar_widget tag_cloud_widget">
                         <h4 class="widget_title">Từ khóa</h4>
@@ -155,3 +155,18 @@
         </div>
     </div>
 </section>
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $(".pull-right li").removeClass("active");
+
+            $(".pull-right li#menugt").addClass("active");
+
+        });
+    </script>
+}

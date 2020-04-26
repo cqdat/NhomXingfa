@@ -19,6 +19,7 @@ namespace NhomXingfa.Controllers
             model.blogGioiThieu = db.Blogs.Where(a => a.BlogID == 3).FirstOrDefault();
             model.lstServices = db.Blogs.Where(b => b.TypeBlog == WebConstants.BlogAboutUs_more && b.IsActive == true && b.BlogID != 3).ToList();
             model.lstProductNoibat = db.ProductGroups.Where(a => a.GroupCode == WebConstants.ProductNoiBat).Take(8).ToList();
+            model.listSPMoi = db.ProductGroups.Where(a => a.GroupCode == WebConstants.ProductMoi).Take(5).ToList();
             model.lstListProjects = db.Products.Where(p => p.IsActive == true && p.IsProduct == false && p.ProductCode == "BST").OrderByDescending(p=>p.ProductID).Take(8).ToList();
             model.lstLastNews = db.Blogs.Where(q => q.IsActive == true && q.TypeBlog == WebConstants.BlogNews).OrderByDescending(q=>q.LastModify).Take(3).ToList();
             return View(model);

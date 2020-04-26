@@ -11,13 +11,21 @@ namespace NhomXingfa.Models
         public List<Product> product { get; set; }
         public List<Category> categories { get; set; }
         public Category category { get; set; }
+        public bool? isAll { get; set; }
     }
 
     public class DetailProductViewModel
     {
         public Product product { get; set; }
         public Category category { get; set; }
-        public List<ProductImage> listimage { get; set; }
+        public List<ImageData> listimage { get; set; }
+    }
+
+    public class ImageData
+    {
+        public string urlimg { get; set; }
+        public string urlthumb { get; set; }
+        public string title { get; set; }
     }
 
     public class NewsViewModel
