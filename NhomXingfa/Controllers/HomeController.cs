@@ -22,6 +22,7 @@ namespace NhomXingfa.Controllers
             model.listSPMoi = db.ProductGroups.Where(a => a.GroupCode == WebConstants.ProductMoi).Take(5).ToList();
             model.lstListProjects = db.Products.Where(p => p.IsActive == true && p.IsProduct == false && p.ProductCode == "BST").OrderByDescending(p=>p.ProductID).Take(8).ToList();
             model.lstLastNews = db.Blogs.Where(q => q.IsActive == true && q.TypeBlog == WebConstants.BlogNews).OrderByDescending(q=>q.LastModify).Take(3).ToList();
+            ViewBag.Title = "Trang Chủ";
             return View(model);
         }
 

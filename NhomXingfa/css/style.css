@@ -718,12 +718,17 @@ img {
         color:#71cd14;
     }
 
-    .single-feature .title i {
-        color: #f8b600 !important;
-        font-weight: 500;
-        font-size: 28px;
-        display: inline-block
-    }
+        .single-feature h3:hover
+        {
+            color:#ba603d;
+        }
+
+        .single-feature .title i {
+            color: #f8b600 !important;
+            font-weight: 500;
+            font-size: 28px;
+            display: inline-block
+        }
 
     .single-feature p {
         margin-bottom: 0px;
