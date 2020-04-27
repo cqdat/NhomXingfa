@@ -19,7 +19,7 @@ namespace NhomXingfa.Controllers
             model.categories = db.Categories.Where(q => q.IsActive == true && q.TypeCate == 1).ToList();
             model.listduan = db.Products.Where(q => q.IsActive == true && q.ProductCode == "BST").OrderByDescending(o => o.ProductID).Take(5).ToList();
 
-            if(id==null)
+            if(id == null)
             {
                 model.isAll = true;
                 model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true).ToList();
@@ -35,6 +35,10 @@ namespace NhomXingfa.Controllers
                 model.isAll = false;
                 model.product = db.Products.Where(q => q.IsActive == true && q.IsProduct == true && q.CategoryID == id).ToList();
                 model.category = db.Categories.Find(id);
+
+                model.SEOTitle = model.category.SEOTitle;
+                model.SEOKeywords = model.category.SEOKeywords;
+                model.SEOMetadescription = model.category.SEOMetadescription;
             }
             return View(model);
         }

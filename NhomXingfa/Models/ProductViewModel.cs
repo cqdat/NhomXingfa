@@ -13,6 +13,9 @@ namespace NhomXingfa.Models
         public Category category { get; set; }
         public bool? isAll { get; set; }
         public List<Product> listduan { get; set; }
+        public string SEOTitle { get; set; }
+        public string SEOKeywords { get; set; }
+        public string SEOMetadescription { get; set; }
     }
 
     public class DetailProductViewModel

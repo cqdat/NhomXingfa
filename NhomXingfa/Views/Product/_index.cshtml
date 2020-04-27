@@ -51,26 +51,11 @@
                                             <h4>@q.ProductName</h4>
                                         </a>
                                         <div class="mt-3">
-                                            <span class="mr-4">
-                                                @if (q.Price == "0" || q.Price == "" || q.Price == null)
-                                                {
-                                                    <span>Liên hệ</span>
-                                                }
-                                                else
-                                                {
-                                                    <span>@q.Price</span>
-                                                }
-
-
-                                            </span>
-
-
+                                            <span class="mr-4">@q.PriceSale</span>
+                                            <del>@q.Price</del>
                                         </div>
-
                                     </div>
-
                                 </div>
-
                             </div>
                         }
 
@@ -90,13 +75,13 @@
                                 @foreach (var q in Model.categories)
                                 {
                                     @*if (q.Parent == 0)
-                                        {
-                                            <li>
-                                                <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID"><span class="text-danger"><b>@q.CategoryName</b></span></a>
-                                            </li>
-                                        }
-                                        else
-                                        {*@
+            {
+                <li>
+                    <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID"><span class="text-danger"><b>@q.CategoryName</b></span></a>
+                </li>
+            }
+            else
+            {*@
                                     if (Model.category != null && Model.category.CategoryID == q.CategoryID)
                                     {
                                         <li class="active">
@@ -116,29 +101,29 @@
                     </aside>
 
                     @*<aside class="left_widgets p_filter_widgets">
-                            <div class="l_w_title">
-                                <h3>Color Filter</h3>
-                            </div>
-                            <div class="widgets_inner">
-                                <ul class="list">
-                                    <li>
-                                        <a href="#">Black</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Black Leather</a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="#">Black with red</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Gold</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Spacegrey</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </aside>*@
+                        <div class="l_w_title">
+                            <h3>Color Filter</h3>
+                        </div>
+                        <div class="widgets_inner">
+                            <ul class="list">
+                                <li>
+                                    <a href="#">Black</a>
+                                </li>
+                                <li>
+                                    <a href="#">Black Leather</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">Black with red</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gold</a>
+                                </li>
+                                <li>
+                                    <a href="#">Spacegrey</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>*@
                     <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">Dự Án Nổi Bật</h3>
