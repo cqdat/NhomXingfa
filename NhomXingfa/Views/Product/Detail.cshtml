@@ -3,6 +3,12 @@
     ViewBag.Title = Model.product.ProductName;
 }
 
+@section metatags
+{
+    <meta name="keywords" content="@Model.product.SEOKeywords" />
+    <meta name="description" content="@Model.product.SEOMetadescription" />
+}
+
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
         <div class="container">

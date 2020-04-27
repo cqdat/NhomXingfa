@@ -1,6 +1,6 @@
 ﻿@model NhomXingfa.Models.ProductViewModel
 @{
-    if(Model.isAll == false)
+    if (Model.isAll == false)
     {
         ViewBag.Title = Model.category.CategoryName;
     }
@@ -9,6 +9,12 @@
         ViewBag.Title = "Tất cả sản phẩm";
     }
 
+}
+
+@section metatags
+{
+    <meta name="keywords" content="@Model.SEOKeywords" />
+    <meta name="description" content="@Model.SEOMetadescription" />
 }
 
 
