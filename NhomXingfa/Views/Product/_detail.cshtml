@@ -66,7 +66,18 @@
             <div class="col-lg-5 offset-lg-1">
                 <div class="s_product_text">
                     <h3>@Model.product.ProductName</h3>
-                    <h2>@Model.product.Price</h2>
+                    Giá: <h2>
+                        @if (Model.product.Price == "0" || Model.product.Price == "" || Model.product.Price == null)
+                        {
+                            <span>Liên hệ</span>
+                        }
+                        else
+                        {
+                            <span>@Model.product.Price</span>
+                        }
+
+                        
+                    </h2>
                     <ul class="list">
                         <li>
                             <a class="active" href="/san-pham/@Model.category.SEOUrlRewrite-@Model.category.CategoryID">

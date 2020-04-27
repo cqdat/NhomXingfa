@@ -18,6 +18,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         private XingFaEntities db = new XingFaEntities();
         Helpers h = new Helpers();
         // GET: Quantri/Users
+        [Authorize]
         public ActionResult Index()
         {
             var model = new UserViewModel();
@@ -29,6 +30,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Users/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -44,6 +46,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Users/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "UserName");
@@ -53,6 +56,8 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Users/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UserID,UserName,HashPass,Active,Created,CreatedBy")] User user)
@@ -69,6 +74,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Users/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -87,6 +93,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Users/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "UserID,UserName,HashPass,Active,Created,CreatedBy")] User user)
@@ -102,6 +109,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Users/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,6 +125,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // POST: Quantri/Users/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

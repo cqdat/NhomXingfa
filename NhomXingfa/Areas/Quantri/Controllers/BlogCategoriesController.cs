@@ -24,6 +24,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult _PartialIndex(int? pageNumber, int? pageSize, string TenChungLoai, int? DanhMucCha,
                                           string SEOKeywords)
         {

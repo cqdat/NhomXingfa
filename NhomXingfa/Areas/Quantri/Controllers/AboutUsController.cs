@@ -23,6 +23,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult _PartialIndex(int? pageNumber, int? pageSize, string TieuDe, int? DanhMuc,
                                           string SEOKeywords)
         {
@@ -88,6 +89,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Blogs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]

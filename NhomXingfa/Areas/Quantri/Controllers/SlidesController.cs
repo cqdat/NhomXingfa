@@ -16,6 +16,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         private XingFaEntities db = new XingFaEntities();
 
         // GET: Quantri/Slides
+        [Authorize]
         public ActionResult Index()
         {
             var slides = db.Slides.Include(s => s.User);
@@ -30,6 +31,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
             return View(model);
         }
 
+        [Authorize]
         public JsonResult UploadImage()
         {
             string result = "DONE";
@@ -82,6 +84,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        [Authorize]
         public JsonResult CreateSlide(string urlimg, string slogan1, string slogan2, string title, string link, string target, int? sort)
         {
             string result = "FAIL";
@@ -112,6 +115,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Slides/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -127,6 +131,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Slides/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.CreateBy = new SelectList(db.Users, "UserID", "UserName");
@@ -136,6 +141,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Slides/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SlideID,ImageURL,Slogun1,Slogun2,SlideTitle,LinkBanner,LinkTarget,CategoryID,IsActive,Sort,Created,CreateBy")] Slide slide)
@@ -152,6 +158,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Slides/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -170,6 +177,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Slides/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "SlideID,ImageURL,Slogun1,Slogun2,SlideTitle,LinkBanner,LinkTarget,CategoryID,IsActive,Sort,Created,CreateBy")] Slide slide)
@@ -185,6 +193,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Slides/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -200,6 +209,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // POST: Quantri/Slides/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

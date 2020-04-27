@@ -75,6 +75,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Blogs/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -90,6 +91,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Blogs/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.CategoryID = new SelectList(db.Categories.Where(c => c.TypeCate == WebConstants.CategoryNews), "CategoryID", "CategoryName");
@@ -100,6 +102,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Blogs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -157,6 +160,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Blogs/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -176,6 +180,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Blogs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -243,6 +248,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Blogs/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -258,6 +264,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // POST: Quantri/Blogs/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -9,6 +9,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
     public class HomePageController : Controller
     {
         // GET: Quantri/HomePage
+        [Authorize]
         public ActionResult Index()
         {
             return View();

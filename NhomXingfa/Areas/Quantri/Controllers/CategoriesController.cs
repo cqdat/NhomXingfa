@@ -17,6 +17,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         private XingFaEntities db = new XingFaEntities();
 
         // GET: Quantri/Categories
+        [Authorize]
         public ActionResult Index()
         {
             ViewData["ListCate"] = db.Categories.Where(c => c.TypeCate == WebConstants.CategoryProduct && c.Parent == 0).ToList();
@@ -68,6 +69,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Categories/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -83,6 +85,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Categories/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewData["ListCate"] = db.Categories.Where(c => c.TypeCate == WebConstants.CategoryProduct && c.Parent == 0).ToList();
@@ -92,6 +95,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Categories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CategoryID,CategoryName,Parent,DisplayMenu,IsActive,Sort,TypeCate,SEOTitle,SEOUrlRewrite,SEOKeywords,SEOMetadescription")] Category category)
@@ -112,6 +116,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Categories/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -130,6 +135,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Parent,DisplayMenu,IsActive,Sort,TypeCate,SEOTitle,SEOUrlRewrite,SEOKeywords,SEOMetadescription")] Category category)
@@ -148,6 +154,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Categories/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -163,6 +170,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // POST: Quantri/Categories/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

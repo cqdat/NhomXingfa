@@ -18,6 +18,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         string tempPath = "~/Upload/";
         string serverMapPath = "~/Photos/Products/";
 
+        
         private string StorageRoot
         {
             get { return Path.Combine(HostingEnvironment.MapPath(serverMapPath)); }

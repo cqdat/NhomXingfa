@@ -20,8 +20,9 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         private XingFaEntities db = new XingFaEntities();
 
         // GET: Products
-        #region List of product
 
+        #region List of product
+        [Authorize]
         public ActionResult Index()
         {
             ViewData["ListCateParent"] = db.Categories.Where(c => c.Parent == 0 && c.TypeCate == WebConstants.CategoryProduct).ToList();
@@ -74,7 +75,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
             }
             ViewBag.SEOKeywords = SEOKeywords;
 
-            lstprod = lstprod.OrderBy(s => s.Created).ToList();
+            lstprod = lstprod.OrderByDescending(s => s.Created).ToList();
             ViewBag.STT = pageNumber * pageSize - pageSize + 1;
             int count = lstprod.ToList().Count();
             ViewBag.TotalRow = count;
@@ -87,6 +88,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         #endregion
 
         // GET: Quantri/Products/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -156,7 +158,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
                 }
                 product.CategoryIDParent = product.CategoryID;
                 product.IsProduct = true;
-                
+
                 product.PriceSale = "0";
                 product.SEOUrlRewrite = Helpers.ConvertToUpperLower(product.ProductName);
                 product.Created = DateTime.Now;
@@ -165,7 +167,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
                 db.Products.Add(product);
                 db.SaveChanges();
                 Success(string.Format("Thêm mới sản phẩm<b>{0}</b> thành công.", product.ProductName), true);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Products", new { id = product.ProductID });
             }
 
             ViewBag.CategoryIDParent = new SelectList(db.Categories.Where(c => c.Parent == 0), "CategoryID", "CategoryName", product.CategoryIDParent);
@@ -177,6 +179,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Products/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -189,7 +192,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
                 return HttpNotFound();
             }
             ViewBag.CategoryIDParent = new SelectList(db.Categories.Where(c => c.Parent == 0 && c.TypeCate == WebConstants.CategoryProduct), "CategoryID", "CategoryName", product.CategoryIDParent);
-            ViewBag.CategoryID = new SelectList(db.Categories.Where(c => c.Parent == product.CategoryIDParent && c.TypeCate == WebConstants.CategoryProduct), "CategoryID", "CategoryName", product.CategoryID);
+            ViewBag.CategoryID = new SelectList(db.Categories.Where(c => c.TypeCate == WebConstants.CategoryProduct), "CategoryID", "CategoryName", product.CategoryID);
             ViewBag.CreatedBy = new SelectList(db.Users, "UserID", "UserName", product.CreatedBy);
             return View(product);
         }
@@ -197,15 +200,68 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         // POST: Quantri/Products/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductCode,ProductName,IsProduct,Price,PriceSale,CategoryIDParent,CategoryID,Images,ImagesThumb,ShortDescription,Content,InStock,IsSale,IsNew,Rating,IsActive,CountView,Created,CreatedBy,SEOTitle,SEOUrlRewrite,SEOKeywords,SEOMetadescription")] Product product)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "ProductID,ProductCode,ProductName,IsProduct,Price,PriceSale,CategoryIDParent,CategoryID,Images,ImagesThumb,ShortDescription,Content,InStock,IsSale,IsNew,Rating,IsActive,CountView,Created,CreatedBy,SEOTitle,SEOUrlRewrite,SEOKeywords,SEOMetadescription")] Product product,
+            HttpPostedFileBase HinhAnh)
         {
             if (ModelState.IsValid)
             {
+                var allowedExtensions = new[] {
+            ".Jpg", ".png", ".jpg", "jpeg"
+                };
+
+                if (HinhAnh == null)
+                {
+                    product.Images = product.Images;
+                }
+                else
+                {
+
+                    //Xóa hình ảnh đã tồn tại, trừ hình ảnh mặc định.
+                    if (product.Images != "NoImage.png")
+                    {
+                        string fullPath = Request.MapPath(WebConstants.ImgProduct + "/" + product.Images);
+                        if (System.IO.File.Exists(fullPath))
+                        {
+                            System.IO.File.Delete(fullPath);
+                        }
+                    }
+
+                    var fileName = Path.GetFileName(HinhAnh.FileName);
+                    var ext = Path.GetExtension(HinhAnh.FileName);
+                    if (allowedExtensions.Contains(ext)) //check what type of extension  
+                    {
+                        string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension  
+                        string myfile = name + "_" + DateTime.Now.Millisecond + ext; //appending the name with id  
+                                                                                     // store the file inside ~/project folder(Img)  
+
+                        var path = Path.Combine(Server.MapPath(WebConstants.ImgProduct), myfile);
+                        //var dir = Directory.CreateDirectory(path);
+                        //HinhAnh.SaveAs(Path.Combine(path, myfile));
+
+                        product.Images = myfile;
+                        HinhAnh.SaveAs(path);
+                    }
+                    else
+                    {
+                        ViewBag.message = "Please choose only Image file";
+                    }
+                }
+
+                product.IsProduct = true;
+                product.Price = product.Price;
+                product.PriceSale = product.PriceSale;
+                product.Created = product.Created;
+                product.CreatedBy = product.CreatedBy;
+                product.SEOUrlRewrite = Helpers.ConvertToUpperLower(product.ProductName);
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                Success(string.Format("Chỉnh sửa thông tin sản phẩm <b>{0}</b> thành công.", product.ProductName), true);
+
+                return RedirectToAction("Details", "Products", new { id = product.ProductID });
             }
             ViewBag.CategoryIDParent = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryIDParent);
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
@@ -214,6 +270,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // GET: Quantri/Products/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -229,6 +286,7 @@ namespace NhomXingfa.Areas.Quantri.Controllers
         }
 
         // POST: Quantri/Products/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
