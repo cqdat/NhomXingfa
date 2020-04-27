@@ -82,7 +82,7 @@
             }
             else
             {*@
-                                    if (Model.category.CategoryID == q.CategoryID)
+                                    if (Model.category != null && Model.category.CategoryID == q.CategoryID)
                                     {
                                         <li class="active">
                                             <a href="/san-pham/@q.SEOUrlRewrite-@q.CategoryID">@q.CategoryName</a>
